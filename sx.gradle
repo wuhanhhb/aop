@@ -1,0 +1,32 @@
+//next all add to bintray
+apply plugin: 'com.novoda.bintray-release'
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}
+
+publish {
+    userOrg = 'sxhebing'
+    groupId = 'com.sx'
+    artifactId = 'aop'
+    publishVersion = '1.0.0'
+    desc = 'Aop Util'
+    website = 'https://github.com/wuhanhhb/aop'
+    dryRun = false
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allJava
+}
+
+// build a jar with javadoc
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
