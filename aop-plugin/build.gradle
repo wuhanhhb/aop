@@ -7,3 +7,8 @@ dependencies {
     compile 'org.aspectj:aspectjtools:1.8.6'
     compile 'org.aspectj:aspectjrt:1.8.6'
 }
+
+//com.github.wuhanhhb.aop:aop-runtime:v1.0
+//com.github.wuhanhhb.aop:aop-plugin:v1.0
+//com.github.wuhanhhb.aop:aop-annotations:v1.0
+

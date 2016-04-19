@@ -1,13 +1,16 @@
 package com.sx.internal;
 
-
-import com.sx.internal.map.ArrayMap;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.util.ArrayMap;
 
 import java.util.ArrayList;
 
 /**
  * Created by hebing on 2016/4/19.
+ * 
  */
+@TargetApi(Build.VERSION_CODES.KITKAT)
 public class AopManager {
 
     private static ArrayMap<Class, Inject> injects = new ArrayMap<>();
