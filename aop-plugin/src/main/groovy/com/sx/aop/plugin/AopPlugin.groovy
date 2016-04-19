@@ -27,11 +27,11 @@ class AopPlugin implements Plugin<Project> {
         }
 
         project.dependencies {
-            debugCompile 'com.github.wuhanhhb.aop:aop-runtime:v1.0'
-            //debugCompile 'com.sx.aop:aop-runtime:1.0.0'
             debugCompile 'org.aspectj:aspectjrt:1.8.6'
-            debugCompile 'com.github.wuhanhhb.aop:aop-annotations:v1.0'
-            //compile 'com.sx.aop:aop-annotations:1.0.0'
+            debugCompile 'com.github.wuhanhhb.aop:aop-runtime:v1.2'
+            compile 'com.github.wuhanhhb.aop:aop-annotations:v1.2'
+//            debugCompile 'com.sx:aop:1.0.0'
+//            compile 'com.sx.annotations:aop:1.0.0'
         }
 
         variants.all { variant ->

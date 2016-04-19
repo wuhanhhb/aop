@@ -11,4 +11,35 @@ dependencies {
 //com.github.wuhanhhb.aop:aop-runtime:v1.0
 //com.github.wuhanhhb.aop:aop-plugin:v1.0
 //com.github.wuhanhhb.aop:aop-annotations:v1.0
-
+//
+//apply plugin: 'com.novoda.bintray-release'
+//
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+//}
+//
+//publish {
+//    userOrg = 'sxhebing'
+//    groupId = 'com.sx.plugin'
+//    artifactId = 'aop'
+//    publishVersion = '1.0.0'
+//    desc = 'Aop Util'
+//    website = 'https://github.com/wuhanhhb/aop'
+//    dryRun = false
+//}
+//
+//task sourcesJar(type: Jar) {
+//    from sourceSets.main.allGroovy
+//    classifier = 'sources'
+//}
+//
+//
+//task javadocJar(type: Jar, dependsOn: groovydoc) {
+//    from groovydoc.destinationDir
+//    classifier = 'javadoc'
+//}
+//
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
