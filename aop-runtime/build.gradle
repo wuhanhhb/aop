@@ -56,38 +56,38 @@ android.libraryVariants.all { variant ->
 }
 
 //next all add to bintray
-apply plugin: 'com.novoda.bintray-release'
-
-tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
-}
-
-publish {
-    userOrg = 'sxhebing'
-    groupId = 'com.sx.aop'
-    artifactId = 'runtime'
-    publishVersion = '1.0.0'
-    desc = 'Aop Util'
-    website = 'https://github.com/wuhanhhb/aop'
-    dryRun = false
-}
-
-task androidJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.source
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
-    classifier = 'javadoc'
-    from androidJavadocs.destinationDir
-}
-
-task androidSourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.source
-}
-
-artifacts {
-    archives androidSourcesJar
-    archives androidJavadocsJar
-}
+//apply plugin: 'com.novoda.bintray-release'
+//
+//tasks.withType(JavaCompile) {
+//    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+//}
+//
+//publish {
+//    userOrg = 'sxhebing'
+//    groupId = 'com.sx.aop'
+//    artifactId = 'runtime'
+//    publishVersion = '1.0.0'
+//    desc = 'Aop Util'
+//    website = 'https://github.com/wuhanhhb/aop'
+//    dryRun = false
+//}
+//
+//task androidJavadocs(type: Javadoc) {
+//    source = android.sourceSets.main.java.source
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//}
+//
+//task androidJavadocsJar(type: Jar, dependsOn: androidJavadocs) {
+//    classifier = 'javadoc'
+//    from androidJavadocs.destinationDir
+//}
+//
+//task androidSourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from android.sourceSets.main.java.source
+//}
+//
+//artifacts {
+//    archives androidSourcesJar
+//    archives androidJavadocsJar
+//}

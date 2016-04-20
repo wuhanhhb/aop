@@ -29,6 +29,7 @@ class AopPlugin implements Plugin<Project> {
 //        project.configurations.create("ajtools")
         project.dependencies {
 //            ajtools "org.aspectj:aspectjtools:1.8.6"
+            compile "com.sx.aop:runtime:1.0.0"
             compile "org.aspectj:aspectjrt:1.8.6"
         }
 
