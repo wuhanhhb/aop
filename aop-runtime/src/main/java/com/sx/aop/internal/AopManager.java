@@ -1,14 +1,11 @@
-package com.sx.internal;
+package com.sx.aop.internal;
 
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.util.ArrayMap;
 
-import java.util.ArrayList;
-
 /**
  * Created by hebing on 2016/4/19.
- * 
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
 public class AopManager {
@@ -19,23 +16,23 @@ public class AopManager {
         /**
          * if return true,will not call old method
          *
-         * @param methodName
-         * @return
+         * @param methodName the name of method
+         * @return true or false
          */
         public boolean before(String methodName);
 
         /**
          * if before reutrn true,you need to do this
          *
-         * @param methodName
-         * @param params
-         * @return
+         * @param methodName the name of method
+         * @param params     the params of method
+         * @return return process result
          */
         public Object process(String methodName, Object... params);
 
         /**
          * @param result the result will be return
-         * @return
+         * @return return real result
          */
         public Object after(String methodName, Object result);
     }

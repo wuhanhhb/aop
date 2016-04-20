@@ -1,3 +1,2 @@
-include ':aop-annotations'
 include ':aop-plugin'
 include ':aop-runtime'

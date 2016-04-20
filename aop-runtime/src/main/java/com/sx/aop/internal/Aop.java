@@ -1,4 +1,4 @@
-package com.sx.internal;
+package com.sx.aop.internal;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,7 +10,7 @@ import org.aspectj.lang.reflect.CodeSignature;
 public class Aop {
     private static volatile boolean enabled = true;
 
-    @Pointcut("within(@com.sx.annotation.Aop *)")
+    @Pointcut("within(@com.sx.aop.annotation.Aop *)")
     public void withinAnnotatedClass() {
     }
 
@@ -18,7 +18,7 @@ public class Aop {
     public void methodInsideAnnotatedType() {
     }
 
-    @Pointcut("execution(@com.sx.annotation.Aop * *(..)) || methodInsideAnnotatedType()")
+    @Pointcut("execution(@com.sx.aop.annotation.Aop * *(..)) || methodInsideAnnotatedType()")
     public void method() {
     }
 
