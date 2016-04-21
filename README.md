@@ -7,7 +7,7 @@ First include the build plugin:
             jcenter()
         }
         dependencies {
-            classpath 'com.sx.aop:plugin:1.0.1'
+            classpath 'com.sx.aop:plugin:1.0.5'
         }
     }
 
