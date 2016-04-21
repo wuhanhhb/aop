@@ -26,12 +26,16 @@ class AopPlugin implements Plugin<Project> {
 
         final def log = project.logger
 
+        //project.extensions.create('aop', AopExtension)
+
         if (project.hasProperty("aspectjVersion")) {
+            println "aspectjVersion : ${project.aspectjVersion}"
             project.dependencies {
                 compile "com.sx.aop:runtime:1.0.1"
                 compile "org.aspectj:aspectjrt:${project.aspectjVersion}"
             }
         } else {
+            println "Use default version of aspectj:1.8.6"
             project.dependencies {
                 compile "com.sx.aop:runtime:1.0.1"
                 compile "org.aspectj:aspectjrt:1.8.6"

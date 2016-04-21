@@ -17,7 +17,7 @@ publish {
     userOrg = 'sxhebing'
     groupId = 'com.sx.aop'
     artifactId = 'plugin'
-    publishVersion = '1.0.1'
+    publishVersion = '1.0.4'
     desc = 'Aop Util Plugin'
     website = 'https://github.com/wuhanhhb/aop'
     dryRun = false
