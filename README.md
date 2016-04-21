@@ -15,9 +15,9 @@ add this to your app or library:
 
     apply plugin: 'aop'
     
-~~You also can set the version of aspectj like this after :
+You also can set the version of aspectj like this after :
 
-    ext {
+    aop {
         aspectjVersion = '1.8.0'
-    }~~
+    }
     
