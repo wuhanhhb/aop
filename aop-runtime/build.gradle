@@ -24,7 +24,7 @@ android.libraryVariants.all { variant ->
     javaCompile.doLast {
         String[] args = [
                 "-showWeaveInfo",
-                "-1.8",
+                "-1.5",
                 "-inpath", javaCompile.destinationDir.toString(),
                 "-aspectpath", javaCompile.classpath.asPath,
                 "-d", javaCompile.destinationDir.toString(),
@@ -66,7 +66,7 @@ android.libraryVariants.all { variant ->
 //    userOrg = 'sxhebing'
 //    groupId = 'com.sx.aop'
 //    artifactId = 'runtime'
-//    publishVersion = '1.0.0'
+//    publishVersion = '1.0.1'
 //    desc = 'Aop Util'
 //    website = 'https://github.com/wuhanhhb/aop'
 //    dryRun = false

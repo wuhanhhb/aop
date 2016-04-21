@@ -7,34 +7,34 @@ dependencies {
     compile 'org.aspectj:aspectjrt:1.8.6'
 }
 //打包上传部分
-//apply plugin: 'com.novoda.bintray-release'
-//
-//tasks.withType(JavaCompile) {
-//    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
-//}
-//
-//publish {
-//    userOrg = 'sxhebing'
-//    groupId = 'com.sx.aop'
-//    artifactId = 'plugin'
-//    publishVersion = '1.0.0'
-//    desc = 'Aop Util'
-//    website = 'https://github.com/wuhanhhb/aop'
-//    dryRun = false
-//}
-//
-//task sourcesJar(type: Jar) {
-//    from sourceSets.main.allGroovy
-//    classifier = 'sources'
-//}
-//
-//
-//task javadocJar(type: Jar, dependsOn: groovydoc) {
-//    from groovydoc.destinationDir
-//    classifier = 'javadoc'
-//}
-//
-//artifacts {
-//    archives sourcesJar
-//    archives javadocJar
-//}
+apply plugin: 'com.novoda.bintray-release'
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+}
+
+publish {
+    userOrg = 'sxhebing'
+    groupId = 'com.sx.aop'
+    artifactId = 'plugin'
+    publishVersion = '1.0.1'
+    desc = 'Aop Util Plugin'
+    website = 'https://github.com/wuhanhhb/aop'
+    dryRun = false
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allGroovy
+    classifier = 'sources'
+}
+
+
+task javadocJar(type: Jar, dependsOn: groovydoc) {
+    from groovydoc.destinationDir
+    classifier = 'javadoc'
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}

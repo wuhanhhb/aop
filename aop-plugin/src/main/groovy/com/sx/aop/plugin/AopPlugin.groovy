@@ -26,11 +26,16 @@ class AopPlugin implements Plugin<Project> {
 
         final def log = project.logger
 
-//        project.configurations.create("ajtools")
-        project.dependencies {
-//            ajtools "org.aspectj:aspectjtools:1.8.6"
-            compile "com.sx.aop:runtime:1.0.0"
-            compile "org.aspectj:aspectjrt:1.8.6"
+        if (project.hasProperty("aspectjVersion")) {
+            project.dependencies {
+                compile "com.sx.aop:runtime:1.0.1"
+                compile "org.aspectj:aspectjrt:${project.aspectjVersion}"
+            }
+        } else {
+            project.dependencies {
+                compile "com.sx.aop:runtime:1.0.1"
+                compile "org.aspectj:aspectjrt:1.8.6"
+            }
         }
 
         project.afterEvaluate {
@@ -41,7 +46,7 @@ class AopPlugin implements Plugin<Project> {
                     javaCompile.doLast {
                         String[] args = [
                                 "-showWeaveInfo",
-                                "-1.8",
+                                "-1.5",
                                 "-inpath", javaCompile.destinationDir.toString(),
                                 "-aspectpath", javaCompile.classpath.asPath,
                                 "-d", javaCompile.destinationDir.toString(),
