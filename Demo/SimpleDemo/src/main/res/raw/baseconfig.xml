@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<props>
+    <!-- 基础配置选项 -->
+    <configs>
+        <addr>http://27.17.43.146</addr>
+        <port>58085</port>
+    </configs>
+    <!-- 映射配置选项 -->
+    <classmapping>
+        <map from="com.huaxin.common.login.LoginActivity"
+            to="com.huaxin.common.login.UserActivity" />
+    </classmapping>
+    <!-- 网络接口配置 alia是别名(需大写) action是接口名称 params是参数集合(可能为空) -->
+    <requests>
+        <request alia="LOGIN" action="huaxin/login" params="username#password" />
+        <request alia="LOGIN2" action="huaxin/login2" params="username#password" />
+    </requests>
+</props>
