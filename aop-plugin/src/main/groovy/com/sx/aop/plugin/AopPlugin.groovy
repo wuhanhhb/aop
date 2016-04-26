@@ -15,7 +15,7 @@ class AopPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         def variants = null
-        //com.android.application
+        //com.android.application applicationVariants
         if (project.plugins.findPlugin("android") || project.plugins.findPlugin("com.android.application")) {
             variants = "applicationVariants"
         } else if (project.plugins.findPlugin("android-library") || project.plugins.findPlugin("com.android.library")) {
@@ -34,12 +34,19 @@ class AopPlugin implements Plugin<Project> {
             compile "org.aspectj:aspectjrt:${project.aop.aspectjVersion}"
         }
 
+        def transformClassesWithDex = null
+
+        if (project.tasks.findByName("transformClassesWithDexForDebug") != null) {
+            transformClassesWithDex = project.tasks.findByName("transformClassesWithDexForDebug")
+        } else if (project.tasks.findByName("transformClassesWithDexForRelease") != null) {
+            transformClassesWithDex = project.tasks.findByName("transformClassesWithDexForRelease")
+        }
+
         project.afterEvaluate {
             project.android[variants].all {
                 variant ->
 
-                    JavaCompile javaCompile = variant.javaCompile
-                    javaCompile.doLast {
+                    Closure aspectjClosure = {
                         String[] args = [
                                 "-showWeaveInfo",
                                 "-1.5",
@@ -49,7 +56,7 @@ class AopPlugin implements Plugin<Project> {
                                 "-classpath", javaCompile.classpath.asPath,
                                 "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)
                         ]
-                        log.debug "ajc args: " + Arrays.toString(args)
+                        println "ajc args: ${Arrays.toString(args)}"
 
                         MessageHandler handler = new MessageHandler(true);
                         new Main().run(args, handler);
@@ -72,6 +79,14 @@ class AopPlugin implements Plugin<Project> {
                             }
                         }
                     }
+
+                    //before transformClassesWithDexForDebug transformClassesWithDexForRelease
+                    if (transformClassesWithDex != null) {
+                        println "find transformClassesWithDex  : ${transformClassesWithDex.name}"
+                        transformClassesWithDex.doFirst(aspectjClosure)
+                    }
+                    JavaCompile javaCompile = variant.javaCompile
+                    javaCompile.doLast(aspectjClosure)
             }
         }
     }

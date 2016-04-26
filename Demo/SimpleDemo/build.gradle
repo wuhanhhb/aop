@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.sx.aop:plugin:1.0.5'
+        classpath 'com.sx.aop:plugin:1.1.1'
     }
 }
 

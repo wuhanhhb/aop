@@ -11,7 +11,7 @@ First include the build plugin to your app or library:
             jcenter()
         }
         dependencies {
-            classpath 'com.sx.aop:plugin:1.0.5'
+            classpath 'com.sx.aop:plugin:1.1.1'
         }
     }
     apply plugin: 'com.android.application'
